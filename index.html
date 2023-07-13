@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Project</title>
+  <link rel="stylesheet" href="./output.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+</head>
+
+<body class="">
+  <nav class="bg-white border-gray-200">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/" class="flex items-center">
+        DBMS Project - Sudipti Upreti
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul
+          class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+          <li>
+            <a href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
+              aria-current="page">Entry</a>
+          </li>
+          <li>
+            <a href="/fetch.html"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Show</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="w-full flex row items-center justify-center min-h-screen opacity-100">
+    <form>
+      <div class="relative z-0 w-full mb-6 group">
+        <input type="email" name="floating_email" id="floating_email"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder="Email" required />
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <input type="password" name="floating_password" id="floating_password"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder="Password" required />
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="relative z-0 w-full mb-6 group">
+          <input type="text" name="floating_first_name" id="floating_first_name"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder="First Name" required />
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+          <input type="text" name="floating_last_name" id="floating_last_name"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder="Last Name" required />
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="relative z-0 w-full mb-6 group">
+          <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder="Phone Number" required />
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+          <input type="text" name="floating_company" id="floating_company"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder="Company Name (e.g., Google)" required />
+        </div>
+      </div>
+      <button type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        onclick="submitForm(event)">Submit</button>
+
+      
+    </form>
+  </div>
+
+
+  <script src="submission.js"></script>
+  <script>
+    function submitForm(event) {
+    // Prevent the default form submission behavior, which would cause the page to reload
+    event.preventDefault();
+
+    // Fetch the form inputs
+    const emailInput = document.getElementById('floating_email');
+    const passwordInput = document.getElementById('floating_password');
+    const firstNameInput = document.getElementById('floating_first_name');
+    const lastNameInput = document.getElementById('floating_last_name');
+    const phoneNumberInput = document.getElementById('floating_phone');
+    const companynameInput = document.getElementById('floating_company');
+
+
+    // Prepare the form data that is going to store into database inside on a variables but at formData object
+    const formData = {
+        email: emailInput.value,
+        password: passwordInput.value,
+        first_name: firstNameInput.value,
+        last_name: lastNameInput.value,
+        phonenumber: phoneNumberInput.value,
+        company_name: companynameInput.value,
+       
+    };
+
+    // Send the form data to the server
+    fetch('/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Form submitted successfully');
+            // Reset the form inputs if data is inserted successfully
+            emailInput.value = '';
+            passwordInput.value = '';
+            firstNameInput.value = '';
+            lastNameInput.value = '';
+            phoneNumberInput.value = '';
+            companynameInput.value = '';
+            
+        } else {
+            console.log('Error submitting form. Please try again later.');
+        }
+    })
+    .catch(error => {
+        console.error('An error occurred while submitting the form:', error);
+        alert('An error occurred while submitting the form. Please try again.');
+    });
+}
+
+  </script>
+ 
+</body>
+
+</html>

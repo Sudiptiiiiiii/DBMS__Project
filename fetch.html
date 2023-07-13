@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Data</title>
+</head>
+<body>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search by email">
+        <a href="#" id="searchButton">Search</a>
+      </form>
+      
+      <script>
+        document.getElementById('searchButton').addEventListener('click', function(event) {
+          event.preventDefault();
+      
+          const searchInput = document.getElementById('searchInput').value;
+      
+          window.location.href = `/fetch?email=${encodeURIComponent(searchInput)}`;
+        });
+      </script>
+      
+  
+
+</body>
+</html>
